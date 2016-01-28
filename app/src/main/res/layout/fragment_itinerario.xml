@@ -1,0 +1,44 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.ufc.quixada.dsdm.info_iasd.ItinerarioFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="19 Sabádo"
+            android:id="@+id/textView_dataExemplo"
+            android:layout_gravity="center_horizontal"
+            android:textSize="40dp"
+            android:background="#a7c5a8" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView_dataExemplo"
+            android:entries="@array/itinerario1"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="23 Quarta-Feira"
+            android:id="@+id/textView_dataExemplo2"
+            android:layout_gravity="center_horizontal"
+            android:textSize="40dp"
+            android:background="#a7c5a8" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView_dataExemplo2"
+            android:entries="@array/itinerario2"/>
+    </LinearLayout>
+
+</FrameLayout>

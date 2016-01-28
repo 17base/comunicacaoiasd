@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_agenda"
+            android:icon="@drawable/ic_calendar_check"
+            android:title="Agenda" />
+        <item
+            android:id="@+id/nav_itinerario"
+            android:icon="@drawable/ic_tie"
+            android:title="Itinerario Pastoral" />
+        <item
+            android:id="@+id/nav_enderecos"
+            android:icon="@drawable/ic_church"
+            android:title="Endereços" />
+        <item
+            android:id="@+id/nav_noticias"
+            android:icon="@drawable/ic_newspaper"
+            android:title="Noticias" />
+        <item
+            android:id="@+id/nav_contatos"
+            android:icon="@drawable/ic_contact_mail"
+            android:title="Contatos" />
+    </group>
+</menu>

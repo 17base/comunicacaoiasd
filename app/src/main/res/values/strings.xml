@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">IASD Info</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="dep">Departamento</string>
+    <string name="resp">Responsável</string>
+
+    <string-array name="agenda1">
+        <item>Evento Simulado</item>
+        <item>Evento Simulado</item>
+    </string-array>
+
+    <string-array name="agenda2">
+        <item>Evento Simulado</item>
+    </string-array>
+
+    <string-array name="contatos">
+        <item>Diretor A</item>
+        <item>Diretor B</item>
+        <item>Diretor C</item>
+        <item>Diretor D</item>
+        <item>Diretor E</item>
+    </string-array>
+
+    <string-array name="itinerario1">
+        <item>Manhã - Messejana</item>
+        <item>Noite - João XXIII</item>
+    </string-array>
+
+    <string-array name="itinerario2">
+        <item>Manhã - São Cristovão</item>
+        <item>Noite - Aldeota</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_contatos">Contatos</string>
+</resources>

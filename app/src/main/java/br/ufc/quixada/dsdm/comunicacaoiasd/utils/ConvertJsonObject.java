@@ -36,6 +36,9 @@ public class ConvertJsonObject {
 
                 item = items.getJSONObject(i);
                 JSONObject id = item.getJSONObject("id");
+                String type = id.getString("kind");
+                if(!type.contains("youtube#video"))
+                    continue;
                 JSONObject snippet = item.getJSONObject("snippet");
                 JSONObject thumb = snippet.getJSONObject("thumbnails");
                 JSONObject default_thumb = thumb.getJSONObject("default");
@@ -86,6 +89,7 @@ public class ConvertJsonObject {
             result.setTotalResults(totalResults);
             result.setResultsPerPage(resultsPerPage);
             result.setYouTubeVideos(youTubeVideos);
+            Log.d(TAG, result.toString());
 
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
@@ -94,6 +98,7 @@ public class ConvertJsonObject {
         Log.d(TAG, result.toString());
         return result;
     }
+
 
     public static String convertToDate(String publishedAt){
         long epoch = 0L;

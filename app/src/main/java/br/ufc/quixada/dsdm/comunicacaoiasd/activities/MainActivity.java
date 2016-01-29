@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
             transaction.replace(R.id.fragment_container, fragment);
             transaction.commit();
 
-        } else if (id == R.id.nav_noticias) {
+        } else if (id == R.id.nav_videos) {
             VideoFragment fragment = new VideoFragment(this, searchResult);
             toolbar.setTitle("Videos Novo Tempo");
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

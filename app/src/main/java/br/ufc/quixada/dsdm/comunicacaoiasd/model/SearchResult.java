@@ -119,6 +119,7 @@ public class SearchResult implements Parcelable{
                 ", nextPageToken='" + nextPageToken + '\'' +
                 ", totalResults=" + totalResults +
                 ", resultsPerPage=" + resultsPerPage +
+                ", youTubeVideos=" + youTubeVideos +
                 '}';
     }
 }

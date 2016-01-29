@@ -66,12 +66,11 @@ public class ContatosFragment extends Fragment {
 
     public List<Contato> getContatos(){
         List<Contato> contatos = new ArrayList<Contato>();
-        Contato contato = new Contato(1L, "Comunicação", "Jonas de Sousa");
-        Contato contato2 = new Contato(2L, "Música", "Sergio Filho");
-        Contato contato3 = new Contato(3L, "Jovens", "Adenir Ferreira");
+        Contato contato = new Contato("Comunicação", "Jonas de Sousa", "José", "jonas@jonas", "jose@jose", "999999", "999999", "Messejana");
+        Contato contato2 = new Contato("Comunicação", "Jonas de Sousa", "José", "jonas@jonas", "jose@jose", "999999", "999999", "Messejana");
+
         contatos.add(contato);
         contatos.add(contato2);
-        contatos.add(contato3);
         return contatos;
     }
 

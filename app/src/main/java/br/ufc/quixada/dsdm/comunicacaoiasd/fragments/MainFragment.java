@@ -28,4 +28,23 @@ public class MainFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
+    /**
+     * A simple {@link Fragment} subclass.
+     */
+    public static class VideosFragment extends Fragment {
+
+
+        public VideosFragment() {
+            // Required empty public constructor
+        }
+
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.fragment_video, container, false);
+        }
+
+    }
 }

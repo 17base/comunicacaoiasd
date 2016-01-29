@@ -1,5 +1,6 @@
 package br.ufc.quixada.dsdm.comunicacaoiasd.activities;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,8 @@ import br.ufc.quixada.dsdm.comunicacaoiasd.fragments.EnderecosFragment;
 import br.ufc.quixada.dsdm.comunicacaoiasd.fragments.ItinerarioFragment;
 import br.ufc.quixada.dsdm.comunicacaoiasd.fragments.MainFragment;
 import br.ufc.quixada.dsdm.comunicacaoiasd.fragments.NoticiasFragment;
+import br.ufc.quixada.dsdm.comunicacaoiasd.fragments.VideoFragment;
+import br.ufc.quixada.dsdm.comunicacaoiasd.model.SearchResult;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity
     private NavigationView navigationView = null;
     private Toolbar toolbar = null;
     private DrawerLayout drawer;
+
+    SearchResult searchResult;
 
 
     @Override
@@ -49,6 +54,9 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Intent intent = getIntent();
+        searchResult = intent.getParcelableExtra("RESULT");
     }
 
     @Override
@@ -109,8 +117,8 @@ public class MainActivity extends AppCompatActivity
             transaction.commit();
 
         } else if (id == R.id.nav_noticias) {
-            NoticiasFragment fragment = new NoticiasFragment();
-            toolbar.setTitle("Noticias");
+            VideoFragment fragment = new VideoFragment(this, searchResult);
+            toolbar.setTitle("Videos Novo Tempo");
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
             transaction.commit();

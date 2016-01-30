@@ -7,14 +7,14 @@ public class Evento {
 
     private long id;
     private String mes;
-    private String dia;
+    private String data;
     private String titulo;
     private String descricao;
     private String organizacao;
 
-    public Evento(String mes, String dia, String titulo, String descricao, String organizacao) {
+    public Evento(String mes, String data, String titulo, String descricao, String organizacao) {
         this.mes = mes;
-        this.dia = dia;
+        this.data = data;
         this.titulo = titulo;
         this.descricao = descricao;
         this.organizacao = organizacao;
@@ -39,12 +39,12 @@ public class Evento {
         this.mes = mes;
     }
 
-    public String getDia() {
-        return dia;
+    public String getData() {
+        return data;
     }
 
-    public void setDia(String dia) {
-        this.dia = dia;
+    public void setData(String data) {
+        this.data = data;
     }
 
     public String getTitulo() {
@@ -75,7 +75,7 @@ public class Evento {
     public String toString() {
         return "Evento{" +
                 "mes='" + mes + '\'' +
-                ", dia='" + dia + '\'' +
+                ", data='" + data + '\'' +
                 ", titulo='" + titulo + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", organizacao='" + organizacao + '\'' +

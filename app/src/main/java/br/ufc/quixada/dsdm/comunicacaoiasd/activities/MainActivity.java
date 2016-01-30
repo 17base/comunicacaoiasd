@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity
             transaction.replace(R.id.fragment_container, fragment);
             transaction.commit();
         } else if (id == R.id.nav_itinerario) {
-            ItinerarioFragment fragment = new ItinerarioFragment();
-            toolbar.setTitle("Itinerario");
+            ItinerarioFragment fragment = new ItinerarioFragment(this);
+            toolbar.setTitle("Itinerario Pastoral");
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
             transaction.commit();

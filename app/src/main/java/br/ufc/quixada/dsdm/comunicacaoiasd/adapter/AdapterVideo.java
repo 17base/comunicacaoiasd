@@ -58,7 +58,6 @@ public class AdapterVideo extends RecyclerView.Adapter<AdapterVideo.ViewHolder> 
         ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
         YouTubeVideo video = itens.get(position);
-        Log.d(TAG, video.getTitle());
         holder.title.setText(video.getTitle());
         holder.description.setText(video.getDescription());
         holder.date.setText(video.getPublishedAt());

@@ -12,6 +12,17 @@ import android.util.Log;
 
 public class CreateBD extends SQLiteOpenHelper {
 
+    public static final String TABLE_NAME_VIDEO = " video ";
+    public static final String _ID_VIDEO = " id_endereco ";
+    public static final String _VIDEO_ID = " video_id ";
+    public static final String _TITLE = " title ";
+    public static final String _T_DEFAULT = " t_default ";
+    public static final String _T_MEDIUM = " t_medium ";
+    public static final String _T_HIGH = " t_high ";
+    public static final String _DESCRIPTION = " description ";
+    public static final String _PUBLISHED_AT = " published_at ";
+    public static final String _CHANNEL = " channel ";
+
     public static final String TABLE_NAME_ENDERECO = " endereco ";
     public static final String _ID_ENDERECO = " id_endereco ";
     public static final String _ENDERECO = " endereco ";
@@ -31,7 +42,7 @@ public class CreateBD extends SQLiteOpenHelper {
     public static final String TABLE_NAME_EVENTO = " evento ";
     public static final String _ID_EVENTO = " id_evento ";
     public static final String _MES_EVENTO = " mes ";
-    public static final String _DIA_EVENTO = " dia ";
+    public static final String _DATA_EVENTO = " data ";
     public static final String _TITULO = " titulo ";
     public static final String _DESCRICAO = " descricao ";
     public static final String _ORGANIZACAO = " organizacao ";
@@ -45,6 +56,19 @@ public class CreateBD extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "comunicacao_iasd.db";
     private static final int DATABASE_VERSION = 1;
+
+    private static final String SQL_CREATE_TABLE_VIDEO = " CREATE TABLE "+ TABLE_NAME_VIDEO +
+            "(" +
+            _ID_VIDEO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            _VIDEO_ID + " TEXT NOT NULL, " +
+            _TITLE + " TEXT NOT NULL, " +
+            _T_DEFAULT + " TEXT NOT NULL, " +
+            _T_MEDIUM + " TEXT NOT NULL, " +
+            _T_HIGH + " TEXT NOT NULL, " +
+            _DESCRIPTION + " TEXT NOT NULL, " +
+            _PUBLISHED_AT + " TEXT NOT NULL, " +
+            _CHANNEL + " TEXT NOT NULL, " +
+            ")";
 
     private static final String SQL_CREATE_TABLE_CONTATO = " CREATE TABLE "+ TABLE_NAME_CONTATO +
             "(" +
@@ -63,7 +87,7 @@ public class CreateBD extends SQLiteOpenHelper {
             "(" +
             _ID_EVENTO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             _MES_EVENTO + " TEXT NOT NULL, " +
-            _DIA_EVENTO + " TEXT NOT NULL, " +
+            _DATA_EVENTO + " TEXT NOT NULL, " +
             _TITULO + " TEXT NOT NULL, " +
             _DESCRICAO + " TEXT NOT NULL, " +
             _ORGANIZACAO + " TEXT NOT NULL, " +
@@ -99,6 +123,7 @@ public class CreateBD extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TABLE_ENDERECO);
         db.execSQL(SQL_CREATE_TABLE_EVENTO);
         db.execSQL(SQL_CREATE_TABLE_ITINERARIO);
+        db.execSQL(SQL_CREATE_TABLE_VIDEO);
     }
 
     @Override

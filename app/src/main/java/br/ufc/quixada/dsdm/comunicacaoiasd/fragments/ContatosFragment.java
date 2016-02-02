@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufc.quixada.dsdm.comunicacaoiasd.R;
-import br.ufc.quixada.dsdm.comunicacaoiasd.adapter.Adapter;
+import br.ufc.quixada.dsdm.comunicacaoiasd.adapter.AdapterContato;
 import br.ufc.quixada.dsdm.comunicacaoiasd.adapter.RecyclerItemClickListener;
 import br.ufc.quixada.dsdm.comunicacaoiasd.model.Contato;
 
@@ -32,7 +32,7 @@ public class ContatosFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapterNotification;
     private RecyclerView.LayoutManager layoutManager;
-    private Adapter adapter;
+    private AdapterContato adapter;
 
     private List<Contato> contatos;
 
@@ -48,7 +48,7 @@ public class ContatosFragment extends Fragment {
 
         contatos = getContatos();
 
-        adapter = new Adapter(contatos);
+        adapter = new AdapterContato(contatos);
         recyclerView.setAdapter(adapter);
 
         recyclerView.addOnItemTouchListener(

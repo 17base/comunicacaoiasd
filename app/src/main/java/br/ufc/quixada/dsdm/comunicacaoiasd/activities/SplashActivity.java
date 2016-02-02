@@ -47,10 +47,15 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public SearchResult retriveData() {
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Aguarde...");
+        pDialog.setCancelable(false);
+
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
+                hidePDialog();
                 Log.d(TAG, response.toString());
 
                 searchResult = convertJsonObject.convert(response);
@@ -66,6 +71,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, error.toString());
+                hidePDialog();
             }
         });
 
@@ -78,5 +84,12 @@ public class SplashActivity extends AppCompatActivity {
         requestQueue.add(jsObjRequest);
 
         return searchResult;
+    }
+
+    private void hidePDialog() {
+        if (pDialog != null) {
+            pDialog.dismiss();
+            pDialog = null;
+        }
     }
 }

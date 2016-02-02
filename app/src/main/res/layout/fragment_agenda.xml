@@ -2,14 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AgendaFragment">
+    tools:context="br.ufc.quixada.dsdm.comunicacaoiasd.fragments.RecycleFragment">
 
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_agenda"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"/>
 
-
-    </LinearLayout>
 </FrameLayout>

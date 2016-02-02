@@ -14,7 +14,7 @@ import br.ufc.quixada.dsdm.comunicacaoiasd.model.Contato;
 /**
  * Created by jonas_000 on 12/01/2016.
  */
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class AdapterContato extends RecyclerView.Adapter<AdapterContato.ViewHolder> {
 
     private List<Contato> itens;
 
@@ -30,7 +30,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         }
     }
 
-    public Adapter(List<Contato> itens) {
+    public AdapterContato(List<Contato> itens) {
         this.itens = itens;
     }
 

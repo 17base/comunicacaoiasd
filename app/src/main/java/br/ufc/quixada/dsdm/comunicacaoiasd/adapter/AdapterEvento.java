@@ -6,10 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import br.ufc.quixada.dsdm.comunicacaoiasd.R;
-import br.ufc.quixada.dsdm.comunicacaoiasd.model.Contato;
 import br.ufc.quixada.dsdm.comunicacaoiasd.model.Evento;
 
 /**
@@ -20,14 +21,17 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.ViewHolder
     private List<Evento> itens;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private String mes;
-        private String data;
-        private String titulo;
-        private String descricao;
-        private String organizacao;
+        private TextView mes;
+        private TextView data;
+        private TextView titulo;
+        private TextView descricao;
+        private TextView organizacao;
 
         public ViewHolder(View v) {
             super(v);
+            titulo = (TextView) v.findViewById(R.id.evento);
+            organizacao = (TextView) v.findViewById(R.id.organização);
+            data = (TextView) v.findViewById(R.id.date);
         }
     }
 
@@ -37,7 +41,7 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_evento, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -45,7 +49,9 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Evento evento = itens.get(position);
-        //holder.dep.setText(contato.getDep());
+        holder.data.setText(evento.getData());
+        holder.titulo.setText(evento.getTitulo());
+        holder.organizacao.setText(evento.getOrganizacao());
     }
 
     @Override

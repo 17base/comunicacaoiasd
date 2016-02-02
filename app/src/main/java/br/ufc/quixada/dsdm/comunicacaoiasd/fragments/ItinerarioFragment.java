@@ -11,19 +11,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import br.ufc.quixada.dsdm.comunicacaoiasd.R;
 import br.ufc.quixada.dsdm.comunicacaoiasd.adapter.ExpandableListAdapter;
+import br.ufc.quixada.dsdm.comunicacaoiasd.adapter.ExpandableListAdapterCard;
+import br.ufc.quixada.dsdm.comunicacaoiasd.model.Evento;
+
+import static java.util.Arrays.asList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ItinerarioFragment extends Fragment {
-    Context context;
-    RecyclerView recyclerview;
-    ExpandableListAdapter.Item mes;
+    private Context context;
+    private RecyclerView recyclerview;
+    ExpandableListAdapter.Item aux;
 
     public ItinerarioFragment() {
         // Required empty public constructor
@@ -43,33 +48,26 @@ public class ItinerarioFragment extends Fragment {
         recyclerview.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         List<ExpandableListAdapter.Item> data = new ArrayList<>();
 
-        mes = new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Janeiro");
-        mes.invisibleChildren = new ArrayList<>();
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "19 | Messejana"));
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "20 | Paupina"));
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "21 | Santa Maria"));
+        for (String m : getMeses()) {
+            aux = new ExpandableListAdapter.Item(ExpandableListAdapterCard.HEADER, m);
+            aux.invisibleChildren = new ArrayList<>();
+            aux.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "01 | Quarta  | Messejana"));
+            aux.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "04 | Sábado  | Messejana"));
+            aux.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "05 | Domingo | Messejana"));
 
-        data.add(mes);
-
-        mes = new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Fevereiro");
-        mes.invisibleChildren = new ArrayList<>();
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "19 | Messejana"));
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "20 | Paupina"));
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "21 | Santa Maria"));
-
-        data.add(mes);
-
-        mes = new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Março");
-        mes.invisibleChildren = new ArrayList<>();
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "19 | Messejana"));
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "20 | Paupina"));
-        mes.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "21 | Santa Maria"));
-
-        data.add(mes);
+            if(aux.invisibleChildren.isEmpty()){
+                aux.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapterCard.CHILD, "Não disponível."));
+            }
+            data.add(aux);
+        }
 
         recyclerview.setAdapter(new ExpandableListAdapter(data));
 
         return view;
+    }
+
+    public List<String> getMeses(){
+        return asList("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
     }
 
 }

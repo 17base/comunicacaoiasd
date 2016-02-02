@@ -45,7 +45,7 @@
                         android:id="@+id/dep"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/dep"
+                        android:text="Departamento"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="@string/resp"
+                        android:text="Responsavel"
                         android:textSize="12dp" />
                 </LinearLayout>
 

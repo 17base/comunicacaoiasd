@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_agenda) {
-            AgendaFragment fragment = new AgendaFragment();
+            AgendaFragment fragment = new AgendaFragment(this);
             toolbar.setTitle("Evento");
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);

@@ -97,41 +97,46 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (id == R.id.nav_agenda) {
             AgendaFragment fragment = new AgendaFragment(this);
             toolbar.setTitle("Evento");
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
-            transaction.commit();
+            //transaction.commit();
         } else if (id == R.id.nav_itinerario) {
             ItinerarioFragment fragment = new ItinerarioFragment(this);
             toolbar.setTitle("Itinerario Pastoral");
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
-            transaction.commit();
+            //transaction.commit();
         } else if (id == R.id.nav_enderecos) {
-            EnderecosFragment fragment = new EnderecosFragment();
+            EnderecosFragment fragment = new EnderecosFragment(this);
+            Bundle arg = new Bundle();
+
+            double[] coordenadas = {-3.8294765, -38.4897845};
+            arg.putDoubleArray("coordenadas",coordenadas);
+            fragment.setArguments(arg);
             toolbar.setTitle("Endereços");
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
-            transaction.commit();
+            //transaction.commit();
 
         } else if (id == R.id.nav_videos) {
             VideoFragment fragment = new VideoFragment(this, searchResult);
             toolbar.setTitle("Videos Novo Tempo");
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
-            transaction.commit();
+            //transaction.commit();
         } else if (id == R.id.nav_contatos) {
             ContatosFragment fragment = new ContatosFragment(this);
             toolbar.setTitle("Contatos");
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
-            transaction.commit();
         }
 //            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
+        drawer.closeDrawer( GravityCompat.START);
+        transaction.commit();
+        return true;
         }
 
 }

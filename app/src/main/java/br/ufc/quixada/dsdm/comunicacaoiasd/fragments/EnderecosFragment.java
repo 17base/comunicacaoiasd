@@ -28,8 +28,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.List;
 
 import br.ufc.quixada.dsdm.comunicacaoiasd.R;
+import br.ufc.quixada.dsdm.comunicacaoiasd.model.Igreja;
 
 
 /**
@@ -68,8 +74,21 @@ public class EnderecosFragment extends Fragment {
                 googleMap.moveCamera(center);
                 googleMap.animateCamera(zoom);
                 double[] coordenadas = arg.getDoubleArray("coordenadas");
+                Type fooType = new TypeToken<List<Igreja>>() {}.getType();
+                List<Igreja> igrejas = new Gson().fromJson(arg.getString("igrejas"),fooType);
+
+
+                for (Igreja i:igrejas) {
+                    googleMap.addMarker(new MarkerOptions()
+                        .title(i.getNomeString()+" - "+i.getEndereco())
+                        .position(new LatLng(i.getEndereco().getLocation()[0], i.getEndereco().getLocation()[1]))
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                }
+
                 Marker myLocMarker = googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(coordenadas[0], coordenadas[1])));
+                        .position(new LatLng(coordenadas[0], coordenadas[1]))
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+
                         //.icon(BitmapDescriptorFactory.fromBitmap(writeTextOnDrawable(R.drawable.arrow_right, "your text goes here"))));
             }
         });
